@@ -11,20 +11,19 @@ export class ProductViewComponent implements OnInit{
   data: any|product[];
   constructor(private api:ApiService){}
   ngOnInit(): void {
-    this.displayproducts();
+    this.displayProducts();
   }
 
-  displayproducts(){
-    this.api.getProducts().subscribe(res=>{
+  displayProducts(){
+      this.api.getProducts().subscribe(res=>{
       this.data = res
       console.log(res) 
-    },
-    (err)=>{
-      console.log(err)
-    }
-    ) 
+    }) 
   }
-  addToCart(item: product) {
+  addItem(item: product) {
     this.api.addToCart(item);
+  }
+  removeItem(item: product) {
+    this.api.removeCartItem(item);
   }
 }

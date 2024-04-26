@@ -10,7 +10,7 @@
 </div> -->
 
 <!-- Products display part-->
-<div class="container-fluid" style="background-color: black">
+<div class="container-fluid" style="background-color: black;">
     <div class="row">
         <div class="col-md-2 mt-3" *ngFor="let item of data?.products">
             <div class="card mt-2">
@@ -28,7 +28,7 @@
                     <h3 class="mb-0 font-weight-semibold">{{item.price}} $</h3>
                     <button routerLink="/product-detail/{{item.id}}" class="btn btn-sm btn-dark mt-2"><i class="fa fa-solid fa-info mr-2"></i>&nbsp;view details</button>
                     <button (click)="addToCart(item)" class="btn btn-sm btn-warning mt-2"><i class="fa fa-cart-plus mr-2"></i>&nbsp;Add to cart</button>&nbsp;
-                    <button class="btn btn-sm btn-danger mt-2"><i class="fa fa-remove mr-2"></i>&nbsp;Remove Item</button>
+                    <button (click)="removeItem(item)" class="btn btn-sm btn-danger mt-2"><i class="fa fa-remove mr-2"></i>&nbsp;Remove Item</button>
                 </div> 
             </div>
         </div>

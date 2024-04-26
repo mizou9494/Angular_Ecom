@@ -8,13 +8,15 @@ import { ApiService } from './shared/api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HeaderComponent } from './components/header/header.component';
+import { CartPageComponent } from './components/cart-page/cart-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductViewComponent,
     ProductDetailComponent,
-    HeaderComponent
+    HeaderComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,

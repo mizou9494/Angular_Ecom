@@ -24,6 +24,15 @@ export class ApiService {
     console.log(this.cartItemList)
   }
 
+  removeCartItem(data:product) {
+    this.cartItemList.map((a:product, index:product)=>{
+      if(data.id === a.id){
+        this.cartItemList.splice(index,1);
+      }
+    })
+    this.productList.next(this.cartItemList);
+  }
+
   products() {
     return this.productList.asObservable();
   }
