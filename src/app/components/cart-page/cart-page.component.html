@@ -1,1 +1,37 @@
-<p>cart-page works!</p>
+<ng-container *ngIf="showProduct.length != 0">
+    <div class="container">
+        <h3>Cart Items</h3>
+        <table class="table table-striped">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Image</th>
+                <th scope="col">Brand</th>
+                <th scope="col">Category</th>
+                <th scope="col">Price</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let item of showProduct">
+              <tr>
+                <td><img style="width: 85px; height: 85px" src="{{item.images[0]}}" /></td>
+                <td> {{item.brand}} </td>
+                <td> {{item.category}} </td>
+                <td> $ {{item.price}} </td>
+                <td><button class="btn btn-danger" (click)="removeItem(item)">Remove</button></td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</ng-container>
+
+<!-- Empty cart -->
+
+<ng-container *ngIf="showProduct.length === 0">
+    <div class="card">
+        <div class="center">
+            <h4>Your Card is Empty</h4>
+            <h6>Please Add Items</h6>
+            <button routerLink="/" class="btn btn-dark">Shop Now</button>
+        </div>
+    </div>
+</ng-container>
