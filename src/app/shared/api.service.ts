@@ -23,6 +23,10 @@ export class ApiService {
     this.productList.next(this.cartItemList);
     console.log(this.cartItemList)
   }
+  
+  products() {
+    return this.productList.asObservable();
+  }
 
   removeCartItem(data:product) {
     this.cartItemList.map((a:product, index:product)=>{
@@ -33,7 +37,16 @@ export class ApiService {
     this.productList.next(this.cartItemList);
   }
 
-  products() {
-    return this.productList.asObservable();
+  calculatePrice() {
+    let total = 0;
+    this.cartItemList.map((a:any) => {
+      total += a.price;
+    })
+    return total;
+  }
+
+  removeAllItems() {
+    this.cartItemList = [];
+    this.productList.next(this.cartItemList);
   }
 }

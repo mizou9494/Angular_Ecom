@@ -9,6 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './components/product-detail/product-detail.component';
 import { HeaderComponent } from './components/header/header.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { CartPageComponent } from './components/cart-page/cart-page.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
