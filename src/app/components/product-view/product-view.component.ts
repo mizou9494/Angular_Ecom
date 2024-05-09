@@ -23,7 +23,7 @@ export class ProductViewComponent implements OnInit{
   addItem(item: product) {
     this.api.addToCart(item);
   }
-  removeItem(item: product) {
-    this.api.removeCartItem(item);
-  }
+  // removeItem(item: product) {
+  //   // this.api.removeCartItem(item);
+  // }
 }

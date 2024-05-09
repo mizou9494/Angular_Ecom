@@ -5,5 +5,7 @@ export interface product{
     price:number,
     category:string,
     thumbnail:number,
-    images:string
+    images:string,
+    stock:number,
+    discountPercentage:number
 }

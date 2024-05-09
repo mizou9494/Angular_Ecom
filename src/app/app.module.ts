@@ -10,6 +10,7 @@ import { ProductDetailComponent } from './components/product-detail/product-deta
 import { HeaderComponent } from './components/header/header.component';
 import { CartPageComponent } from './components/cart-page/cart-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { OrderPageComponent } from './components/order-page/order-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProductViewComponent,
     ProductDetailComponent,
     HeaderComponent,
-    CartPageComponent
+    CartPageComponent,
+    OrderPageComponent
   ],
   imports: [
     BrowserModule,

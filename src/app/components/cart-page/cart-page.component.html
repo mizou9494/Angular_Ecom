@@ -14,13 +14,13 @@
                         <th scope="col">Action</th>
                       </tr>
                     </thead>
-                    <tbody *ngFor="let item of showProduct">
+                    <tbody *ngFor="let item of showProduct; index as i">
                       <tr>
                         <td><img style="width: 85px; height: 85px" src="{{item.images[0]}}" /></td>
                         <td> {{item.brand}} </td>
                         <td> {{item.category}} </td>
                         <td> $ {{item.price}} </td>
-                        <td><button class="btn btn-danger" (click)="removeItem(item)">Remove</button></td>
+                        <td><button class="btn btn-danger" (click)="removeItem(i)">Remove</button></td>
                       </tr>
                     </tbody>
                 </table>
@@ -28,7 +28,7 @@
             <!-- Total section -->
             <div class="col-sm-3">
                 <h1>Total Amount: </h1>
-                <strong style="font-size: 35px; color: green;"> {{totalAmount}} </strong><br>
+                <strong style="font-size: 35px; color: green;">$ {{totalAmount}} </strong><br>
                 <div class="btn-group mt-3">
                     <button (click)="this.showForm = true" class="btn btn-primary">Checkout</button>&nbsp;
                     <button (click)="emptyCart()" class="btn btn-secondary">Empty Cart</button>
@@ -52,7 +52,7 @@
                           <label for="exampleInputPassword1">Address</label>
                           <textarea type="text" formControlName="address" class="form-control" id="exampleInputPassword1" placeholder="Address" rows="3"></textarea>
                         </div>
-                        <button (click)="onSubmit()" [disabled]="this.myForm.invalid" type="submit" class="btn btn-success mt-2">Order</button>&nbsp;
+                        <button routerLink="/order-page" (click)="onSubmit()" [disabled]="this.myForm.invalid" type="submit" class="btn btn-success mt-2">Order</button>&nbsp;
                         <button (click)="cancel()" type="submit" class="btn btn-dark mt-2">Cancel</button>
                     </form>
                 </div>
@@ -65,11 +65,11 @@
 <!-- Empty cart -->
 
 <ng-container *ngIf="showProduct.length === 0">
-    <div class="card">
-        <div class="center">
-            <h4>Your Card is Empty</h4>
-            <h6>Please Add Items</h6>
-            <button routerLink="/" class="btn btn-dark">Shop Now</button>
-        </div>
+  <div class="card">
+    <div class="center">
+      <h4>Your Card is Empty</h4>
+      <h6>Please Add Items</h6>
+      <button routerLink="/" class="btn btn-dark">Shop Now</button>
     </div>
+  </div>
 </ng-container>

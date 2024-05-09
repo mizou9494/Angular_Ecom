@@ -29,8 +29,8 @@ export class CartPageComponent implements OnInit {
     })
   }
 
-  removeItem(item:product) {
-    this.api.removeCartItem(item);
+  removeItem(index: number) {
+    this.api.removeCartItem(index);
   }
 
   emptyCart() {

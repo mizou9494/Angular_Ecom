@@ -9,24 +9,24 @@
 <div class="container">
     <div class="row product-detail">
         <div class="col-sm-3">
-            <img src="{{productData?.images[0]}}" alt="" class="product-img">
+            <img src="{{productData.images[0]}}" alt="" class="product-img">
             <div>
                 <button class="btn btn-primary">Buy Now</button>&nbsp;
                 <button (click)="addItem(productData)" *ngIf="showAdd" class="btn btn-success">Add to Cart</button>&nbsp;
-                <button (click)="removeItem(productData)" *ngIf="showRemove" class="btn btn-info">Remove Item</button>
+                <button (click)="removeItem()" *ngIf="showRemove" class="btn btn-info">Remove Item</button>
             </div>
         </div>
         <!-- right side -->
         <div class="col-sm-8">
             <div>
-                <h1>{{productData?.title}}</h1>
+                <h1>{{productData.title}}</h1>
                 <p class="text-success">Special Price</p>
-                <h3>Price: $ {{productData?.price}}</h3>
-                <strong>Category: {{productData?.category}}</strong><br>
+                <h3>Price: $ {{productData.price}}</h3>
+                <strong>Category: {{productData.category}}</strong><br>
                 <strong>Description: </strong><br>
-                <p>{{productData?.description}}</p>
-                <p class="text-success">Discount: {{productData?.discountPercentage}}%</p>
-                <strong>Stock: {{productData?.stock}} units left</strong><br>
+                <p>{{productData.description}}</p>
+                <p class="text-success">Discount: {{productData.discountPercentage}}%</p>
+                <strong>Stock: {{productData.stock}} units left</strong><br>
                 <button routerLink="/" class="btn btn-warning text-light mt-2">BACK</button>
             </div>
         </div>

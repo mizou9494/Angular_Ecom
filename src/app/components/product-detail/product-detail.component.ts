@@ -9,31 +9,33 @@ import { product } from '../product-view/productModal';
   styleUrl: './product-detail.component.css'
 })
 export class ProductDetailComponent implements OnInit {
-  productData:any|product;
+  productData:product = {} as product;
   showAdd:boolean = true;
   showRemove:boolean = false;
   
   constructor(private api:ApiService, private activatedRoute:ActivatedRoute) {}
   
   ngOnInit(): void {
+    console.log(this.productData)
     let productId = this.activatedRoute.snapshot.paramMap.get('productId');
 
     productId && this.api.getProductById(productId).subscribe((res) => {
       this.productData = res;
-      console.log(res)
+      console.log(res);
     })
   }
 
   addItem(productData:product){
     this.showAdd = false;
     this.showRemove = true;
-    this.api.addToCart(productData)
+    this.api.addToCart(productData!)
   }
 
-  removeItem(productData:product){
+  removeItem(){
     this.showAdd = true;
     this.showRemove = false;
-    this.api.removeCartItem(productData)
+    const index = this.api.cartItemList.length - 1
+    this.api.removeCartItem(index)
   }
 
 }
